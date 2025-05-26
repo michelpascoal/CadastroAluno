@@ -62,10 +62,10 @@ public void carregaTabela() {
         JBCancelar = new javax.swing.JButton();
         JBAlterar = new javax.swing.JButton();
         JBApagar = new javax.swing.JButton();
-        JTFNome = new javax.swing.JTextField();
-        JTFIdade = new javax.swing.JTextField();
-        JTFCurso = new javax.swing.JTextField();
-        JTFFase = new javax.swing.JTextField();
+        JTFnome = new javax.swing.JTextField();
+        JTFidade = new javax.swing.JTextField();
+        JTFcurso = new javax.swing.JTextField();
+        JTFfase = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gerenciamento de Alunos ");
@@ -82,6 +82,11 @@ public void carregaTabela() {
                 "ID", "Nome", "Idade", "Curso", "Fase"
             }
         ));
+        JTableAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JTableAlunosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(JTableAlunos);
 
         jLabel1.setText("Nome:");
@@ -100,12 +105,22 @@ public void carregaTabela() {
         });
 
         JBAlterar.setText("Alterar");
+        JBAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAlterarActionPerformed(evt);
+            }
+        });
 
         JBApagar.setText("Apagar");
-
-        JTFIdade.addActionListener(new java.awt.event.ActionListener() {
+        JBApagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFIdadeActionPerformed(evt);
+                JBApagarActionPerformed(evt);
+            }
+        });
+
+        JTFidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFidadeActionPerformed(evt);
             }
         });
 
@@ -123,20 +138,20 @@ public void carregaTabela() {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTFIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JTFidade, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(JTFCurso))
-                                .addComponent(JTFNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(JTFcurso))
+                                .addComponent(JTFnome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JTFFase, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JTFfase, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -154,19 +169,19 @@ public void carregaTabela() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTFnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(JTFIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(JTFCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFcurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(JTFFase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JTFfase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBCancelar)
@@ -178,13 +193,132 @@ public void carregaTabela() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTFIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIdadeActionPerformed
+    private void JTFidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTFIdadeActionPerformed
+    }//GEN-LAST:event_JTFidadeActionPerformed
 
     private void JBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_JBCancelarActionPerformed
+
+    private void JTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JTableAlunosMouseClicked
+        if (this.JTableAlunos.getSelectedRow() != -1) {
+            String nome = this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 1).toString();
+            String idade = this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 2).toString();
+            String curso = this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 3).toString();
+            String fase = this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 4).toString();
+
+            this.JTFnome.setText(nome);
+            this.JTFidade.setText(idade);
+            this.JTFcurso.setText(curso);
+            this.JTFfase.setText(fase);
+        }    
+    }//GEN-LAST:event_JTableAlunosMouseClicked
+
+    private void JBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAlterarActionPerformed
+        try {
+    // recebendo e validando dados da interface gráfica
+    int id = 0;
+    String nome = "";
+    int idade = 0;
+    String curso = "";
+    int fase = 0;
+
+    if (this.JTFnome.getText().length() < 2) {
+        throw new Mensagem("Nome deve conter ao menos 2 caracteres.");
+    } else {
+        nome = this.JTFnome.getText();
+    }
+
+    if (this.JTFidade.getText().length() <= 0) {
+        throw new Mensagem("Idade deve ser número e maior que zero.");
+    } else {
+        idade = Integer.parseInt(this.JTFidade.getText());
+    }
+
+    if (this.JTFcurso.getText().length() < 2) {
+        throw new Mensagem("Curso deve conter ao menos 2 caracteres.");
+    } else {
+        curso = this.JTFcurso.getText();
+    }
+
+    if (this.JTFfase.getText().length() <= 0) {
+        throw new Mensagem("Fase deve ser número e maior que zero.");
+    } else {
+        fase = Integer.parseInt(this.JTFfase.getText());
+    }
+
+    if (this.JTableAlunos.getSelectedRow() == -1) {
+        throw new Mensagem("Primeiro selecione um Aluno para Alterar");
+    } else {
+        id = Integer.parseInt(this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 0).toString());
+    }
+
+    // envia os dados para o Aluno processar (Modelo)
+    if (this.objetoaluno.updateAlunoBD(id, nome, idade, curso, fase)) {
+        // limpa os campos
+        this.JTFnome.setText("");
+        this.JTFidade.setText("");
+        this.JTFcurso.setText("");
+        this.JTFfase.setText("");
+
+        JOptionPane.showMessageDialog(rootPane, "Aluno Alterado com Sucesso!");
+    }
+
+    // Exibe no console o aluno cadastrado
+    System.out.println(this.objetoaluno.getMinhaLista().toString());
+
+} catch (Mensagem erro) {
+    JOptionPane.showMessageDialog(null, erro.getMessage());
+} catch (NumberFormatException erro2) {
+    JOptionPane.showMessageDialog(null, "Informe um número válido.");
+} finally {
+    // atualiza a tabela
+    carregaTabela();
+}
+    }//GEN-LAST:event_JBAlterarActionPerformed
+
+    private void JBApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBApagarActionPerformed
+        try {
+        // validando dados da interface gráfica
+        int id = 0;
+        if (this.JTableAlunos.getSelectedRow() == -1) {
+            throw new Mensagem("Primeiro selecione um Aluno para APAGAR!");
+        } else {
+            id = Integer.parseInt(this.JTableAlunos.getValueAt(this.JTableAlunos.getSelectedRow(), 0).toString());
+        }
+
+        // retorna 0 -> primeiro botão | 1 -> segundo botão | 2 -> terceiro botão
+        int respostaUsuario = JOptionPane.showConfirmDialog(
+            null,
+            "Tem certeza que deseja apagar este Aluno ?",
+            "Apagar",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (respostaUsuario == 0) { // clicou em SIM
+            // envia os dados para o Aluno processar
+            if (this.objetoaluno.deleteAlunoBD(id)) {
+                // limpa os campos
+                this.JTFnome.setText("");
+                this.JTFidade.setText("");
+                this.JTFcurso.setText("");
+                this.JTFfase.setText("");
+
+                JOptionPane.showMessageDialog(rootPane, "Aluno Apagado com Sucesso!");
+            }
+        }
+
+        // exibe no console o aluno cadastrado
+        System.out.println(this.objetoaluno.getMinhaLista().toString());
+
+    } catch (Mensagem erro) {
+        JOptionPane.showMessageDialog(null, erro.getMessage());
+    } finally {
+        // atualiza a tabela
+        carregaTabela();
+   }
+    }//GEN-LAST:event_JBApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,10 +359,10 @@ public void carregaTabela() {
     private javax.swing.JButton JBAlterar;
     private javax.swing.JButton JBApagar;
     private javax.swing.JButton JBCancelar;
-    private javax.swing.JTextField JTFCurso;
-    private javax.swing.JTextField JTFFase;
-    private javax.swing.JTextField JTFIdade;
-    private javax.swing.JTextField JTFNome;
+    private javax.swing.JTextField JTFcurso;
+    private javax.swing.JTextField JTFfase;
+    private javax.swing.JTextField JTFidade;
+    private javax.swing.JTextField JTFnome;
     private javax.swing.JTable JTableAlunos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

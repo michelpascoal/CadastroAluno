@@ -34,15 +34,15 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTFIdade" min="-2" pref="84" max="-2" attributes="0"/>
+                              <Component id="JTFidade" min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="JTFCurso" max="32767" attributes="0"/>
+                                  <Component id="JTFcurso" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="JTFNome" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
+                              <Component id="JTFnome" alignment="0" min="-2" pref="266" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -52,7 +52,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="JTFFase" min="-2" pref="87" max="-2" attributes="0"/>
+                              <Component id="JTFfase" min="-2" pref="87" max="-2" attributes="0"/>
                               <EmptySpace pref="59" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -77,21 +77,21 @@
               <EmptySpace pref="48" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="JTFNome" min="-2" max="-2" attributes="0"/>
+              <Component id="JTFnome" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFIdade" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTFidade" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFCurso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTFcurso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTFFase" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTFfase" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -124,6 +124,9 @@
               </Table>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JTableAlunosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -159,22 +162,28 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alterar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBAlterarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBApagar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="JTFNome">
-    </Component>
-    <Component class="javax.swing.JTextField" name="JTFIdade">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFIdadeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBApagarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFCurso">
+    <Component class="javax.swing.JTextField" name="JTFnome">
     </Component>
-    <Component class="javax.swing.JTextField" name="JTFFase">
+    <Component class="javax.swing.JTextField" name="JTFidade">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFidadeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTFcurso">
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTFfase">
     </Component>
   </SubComponents>
 </Form>
